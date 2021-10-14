@@ -10,14 +10,16 @@
 			aria-expanded="false" aria-controls="new-note" id="new-note-btn">
 			Take a Note
 		</button>
+		<div class="for-alert" role="alert"></div>
 		<div class="collapse mt-3 align-items-center" id="new-note">
 			<form class="new-note-form form-signin mt-5 mb-5 border shadow-lg w-100" action="{{ url_for('create') }}"
 				method="POST">
 				<div class="bg-transparent">
-					<input class="form-control border-0 bg-transparent" id="noteTitle" placeholder="Title">
+					<input class="form-control border-0 bg-transparent" id="noteTitle" placeholder="Title"
+						name="noteTitle" oninput="validate(this)">
 				</div>
 				<div class="bg-transparent">
-					<textarea class="form-control mt-2 border-0 bg-transparent" id="noteContent"
+					<textarea class="form-control mt-2 border-0 bg-transparent" id="noteContent" name="noteContent"
 						placeholder="Take a Note ..."></textarea>
 				</div>
 			</form>
@@ -25,7 +27,7 @@
 			<div>
 				<div class="ms-auto me-auto w-30 ps-lg-1 submit-note">
 					<button class="w-20 btn btn-lg btn-primary ms-auto" id="submit-note-btn" type="submit"
-						onclick="submitForm('.new-note-form')">
+						onclick="submitForm('.new-note-form',['noteTitle'])">
 						Create
 					</button>
 				</div>
@@ -49,10 +51,6 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='scripts/note_color.js')}}"></script>
-<script>
-	function submitForm(name) {
-		console.log($(name))
-		$(name).submit();
-	}
-</script>
+<script src="{{ url_for('static',filename='scripts/validateNoteForm.js')}}"></script>
+
 {% endblock %}

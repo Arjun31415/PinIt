@@ -2,7 +2,7 @@
     font-size: 18px;
     align-items: center;
     text-align: center;
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
 }
 
