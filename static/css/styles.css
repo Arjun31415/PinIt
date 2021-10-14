@@ -127,3 +127,14 @@ h2 {
     max-width: 1000px;
     padding-right: 15px;
 }
+
+#pin-btn {
+    margin-left: 1050px;
+    margin-right: auto;
+    display: block;
+}
+
+.note-tile textarea {
+    min-height: 80px;
+    resize: none;
+}
